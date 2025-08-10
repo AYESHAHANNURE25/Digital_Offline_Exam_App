@@ -55,3 +55,20 @@ With the server running, you can access the application from any web browser on 
 For the Login Page: Use the URL http://<your-computer-ip-address>:5000/
 For the Results Dashboard: Use the URL http://<your-computer-ip-address>:5000/results
 All submitted data will be automatically saved to all_exam_results.xlsx in your project folder.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+Architecture: Client-Server Model
+This application follows a classic client-server model.
+Server (Host Computer):
+Runs the main application logic, questions, and a database.
+Listens for connections from client laptops.
+Serves the exam's web pages to the clients.
+Receives and processes student responses.
+Saves all data to a central database.
+
+Client (Student Laptops):
+Each student uses a standard web browser (like Chrome, Firefox, or Edge).
+Connects to the server's network address (e.g., http://192.168.1.100:5000).
+Interacts with the exam interface (HTML, CSS, JavaScript) provided by the server.
+Submits answers, which are sent back to the server for processing.
+
