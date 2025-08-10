@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam</title>
+    <!-- Add Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .drawing-canvas {
+            border: 2px solid #ccc;
+            background-color: white;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 min-h-screen">
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold">Exam</h1>
+            <div class="text-sm text-gray-600">
+                <p>Student ID: <span class="font-semibold">{{ student_id }}</span></p>
+                <p>Student Name: <span class="font-semibold">{{ student_name }}</span></p>
+                <p>School: <span class="font-semibold">{{ school_name }}</span></p>
+            </div>
+        </div>
+
+        <form id="examForm" action="/submit_answers" method="post">
+            <input type="hidden" name="student_id" value="{{ student_id }}">
+            <input type="hidden" name="student_name" value="{{ student_name }}">
+            <input type="hidden" name="school_name" value="{{ school_name }}">
+
+            <!-- Loop through the questions from the database -->
+            {% for question in questions %}
+                <div id="question-{{ question.id }}" class="question-container p-6 border-b border-gray-200" style="display: none;">
+                    <p class="text-xl font-medium mb-4">{{ loop.index }}. {{ question.question_text }}</p>
+
+                    {% if question.question_image %}
+                        <div class="flex justify-center mb-4">
+                            <img src="/static/images/{{ question.question_image }}" alt="Question Image" class="max-h-96 rounded-lg shadow-md">
+                        </div>
+                    {% endif %}
+
+                    <!-- Display options based on question type -->
+                    <div class="options-container space-y-3">
+                        {% if question.type == 'radio' %}
+                            <!-- Radio buttons for single choice -->
+                            {% for option in question.options %}
+                                <label class="flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors duration-200">
+                                    <input type="radio" name="answer_{{ question.id }}" value="{{ option.id }}" class="form-radio h-5 w-5 text-indigo-600">
+                                    <span class="ml-3 text-lg text-gray-800">{{ option.text }}</span>
+                                </label>
+                            {% endfor %}
+                        {% elif question.type == 'checkbox' %}
+                            <!-- Checkboxes for multiple choice -->
+                            {% for option in question.options %}
+                                <label class="flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors duration-200">
+                                    <input type="checkbox" name="answer_{{ question.id }}" value="{{ option.id }}" class="form-checkbox h-5 w-5 text-indigo-600">
+                                    <span class="ml-3 text-lg text-gray-800">{{ option.text }}</span>
+                                </label>
+                            {% endfor %}
+                        {% elif question.type == 'drawing' %}
+                            <!-- Canvas for drawing -->
+                            <p class="text-lg text-gray-600">Use your mouse to draw your answer below:</p>
+                            <canvas id="canvas-{{ question.id }}" class="drawing-canvas w-full h-80 rounded-lg"></canvas>
+                            <button type="button" class="mt-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors duration-200" onclick="clearCanvas('canvas-{{ question.id }}')">Clear Drawing</button>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+
+            <!-- Navigation buttons -->
+            <div class="flex justify-between mt-6 p-4 border-t border-gray-200">
+                <button type="button" id="prev-btn" class="px-6 py-3 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400 transition-colors duration-200">Previous</button>
+                <button type="button" id="next-btn" class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">Next</button>
+                <button type="submit" id="submit-btn" class="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-200" style="display: none;">Submit Exam</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript to handle question navigation and drawing -->
+    <script>
+        let currentQuestionIndex = 0;
+        const questions = document.querySelectorAll('.question-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        let drawingCanvases = {};
+
+        // Function to show a specific question
+        function showQuestion(index) {
+            questions.forEach(q => q.style.display = 'none');
+            if (questions[index]) {
+                questions[index].style.display = 'block';
+                // Update button visibility
+                prevBtn.style.display = (index === 0) ? 'none' : 'inline-block';
+                nextBtn.style.display = (index === questions.length - 1) ? 'none' : 'inline-block';
+                submitBtn.style.display = (index === questions.length - 1) ? 'inline-block' : 'none';
+            }
+        }
+
+        // Handle next button click
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion(currentQuestionIndex);
+            }
+        });
+
+        // Handle previous button click
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion(currentQuestionIndex);
+            }
+        });
+
+        // Initialize drawing canvases
+        function setupCanvases() {
+            questions.forEach(q => {
+                const canvas = q.querySelector('canvas');
+                if (canvas) {
+                    const ctx = canvas.getContext('2d');
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    let isDrawing = false;
+                    let lastX = 0;
+                    let lastY = 0;
+
+                    const draw = (e) => {
+                        if (!isDrawing) return;
+                        ctx.beginPath();
+                        ctx.moveTo(lastX, lastY);
+                        ctx.lineTo(e.offsetX, e.offsetY);
+                        ctx.strokeStyle = '#000';
+                        ctx.lineWidth = 2;
+                        ctx.lineCap = 'round';
+                        ctx.lineJoin = 'round';
+                        ctx.stroke();
+                        [lastX, lastY] = [e.offsetX, e.offsetY];
+                    };
+
+                    canvas.addEventListener('mousedown', (e) => {
+                        isDrawing = true;
+                        [lastX, lastY] = [e.offsetX, e.offsetY];
+                    });
+
+                    canvas.addEventListener('mousemove', draw);
+                    canvas.addEventListener('mouseup', () => isDrawing = false);
+                    canvas.addEventListener('mouseout', () => isDrawing = false);
+
+                    // For touch devices
+                    canvas.addEventListener('touchstart', (e) => {
+                        e.preventDefault();
+                        isDrawing = true;
+                        const rect = canvas.getBoundingClientRect();
+                        const touch = e.touches[0];
+                        [lastX, lastY] = [touch.clientX - rect.left, touch.clientY - rect.top];
+                    });
+                    canvas.addEventListener('touchmove', (e) => {
+                        e.preventDefault();
+                        const rect = canvas.getBoundingClientRect();
+                        const touch = e.touches[0];
+                        draw({ offsetX: touch.clientX - rect.left, offsetY: touch.clientY - rect.top });
+                    });
+                    canvas.addEventListener('touchend', () => isDrawing = false);
+                    canvas.addEventListener('touchcancel', () => isDrawing = false);
+
+                    drawingCanvases[canvas.id] = canvas;
+                }
+            });
+        }
+
+        // Clear canvas functionality
+        function clearCanvas(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Initially show the first question and setup canvases
+        showQuestion(currentQuestionIndex);
+        setupCanvases();
+    </script>
+</body>
+</html>

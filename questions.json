@@ -1,0 +1,332 @@
+[
+    {
+        "id": 1,
+        "type": "checkbox",
+        "question_text": "Your friend forgot to bring their colours to art class. How do you think they feel, and what can you do?",
+        "question_image": null,
+        "options": [
+            {"text": "They might feel sad or left out. I can share my colours with them.", "image": null, "id": "A"},
+            {"text": "They didn’t bring their things, so I won’t help.", "image": null, "id": "B"},
+            {"text": "They might be pretending. I will ignore them.", "image": null, "id": "C"},
+            {"text": "It’s their fault. I will just do my work.", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 2,
+        "type": "checkbox",
+        "question_text": "Your friend is feeling sad because they were not chosen for the sports team. What can you ask to understand and help them feel better?",
+        "question_image": null,
+        "options": [
+            {"text": "How did you feel when you found out?", "image": null, "id": "A"},
+            {"text": "Which part of the sports test was difficult?", "image": null, "id": "B"},
+            {"text": "What can help you do better next time?", "image": null, "id": "C"},
+            {"text": "All of these", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 3,
+        "type": "checkbox",
+        "question_text": "A farmer is upset because birds are eating the crops. Your team wants to help. Which idea can be the most useful and easy to build?",
+        "question_image": "images/q3_farmer_crops.png",
+        "options": [
+            {"text": "Draw a colourful poster for the farm gate", "image": null, "id": "A"},
+            {"text": "Build a robot to chase birds around the farm", "image": null, "id": "B"},
+            {"text": "Make a scarecrow using sticks, old clothes, and straw", "image": null, "id": "C"},
+            {"text": "Ask the birds politely to stop coming", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 4,
+        "type": "checkbox",
+        "question_text": "Your team wants to help the farmer by building a scarecrow. What is a good way to start making it using things around you?",
+        "question_image": null,
+        "options": [
+            {"text": "Tie two sticks together, use old clothes and straw to shape a scarecrow", "image": null, "id": "A"},
+            {"text": "Draw a big face on cardboard and hang it on a pole in the field", "image": null, "id": "B"},
+            {"text": "Put empty cans on a string and hang them to move in the wind", "image": null, "id": "C"},
+            {"text": "Collect dry leaves and pile them in the shape of a person", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 5,
+        "type": "checkbox",
+        "question_text": "You placed the scarecrow in the field, but some birds still come and eat the crops. What is the best way to improve your scarecrow?",
+        "question_image": null,
+        "options": [
+            {"text": "Cover the crops with more water to keep birds away", "image": null, "id": "A"},
+            {"text": "Take off the scarecrow’s hat and make it look friendlier", "image": null, "id": "B"},
+            {"text": "Move the scarecrow to a different part of the field and wait", "image": null, "id": "C"},
+            {"text": "Add a speaker that makes sounds when birds come close", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 6,
+        "type": "checkbox",
+        "question_text": "Which of the following options includes only tasks that involve repetitive actions (done again and again)?\n1 2 3 4",
+        "question_image": "images/q6_repetitive_actions.png",
+        "options": [
+            {"text": "1, 2 and 3", "image": null, "id": "A"},
+            {"text": "2, 3 and 4", "image": null, "id": "B"},
+            {"text": "1, 3 and 4", "image": null, "id": "C"},
+            {"text": "1, 2 and 4", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 7,
+        "type": "checkbox",
+        "question_text": "Sana made a mistake in her code. Help Sana to reach her school by selecting the correct code.",
+        "question_image": "images/q7_sana_code.png",
+        "options": [
+            {"text": "Option A", "image": "images/q7_option_a.png", "id": "A"},
+            {"text": "Option B", "image": "images/q7_option_b.png", "id": "B"},
+            {"text": "Option C", "image": "images/q7_option_c.png", "id": "C"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 8,
+        "type": "drawing",
+        "question_text": "Think about 3 things you do every day that you enjoy.\n● For each activity, draw one simple picture to show it.\n● Do not draw the full scene — only a small symbol, shape, or sign that captures the main idea.\n● Label each picture clearly with the name of the activity. Example: 🌞 = wake up, ⚽ = play, 📚 = read",
+        "question_image": null,
+        "options": [],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 9,
+        "type": "checkbox",
+        "question_text": "Which of the following is the correct sequence for making a chapati?\n1. Roll the dough 2. Knead the dough 3. Cook the chapati",
+        "question_image": "images/q9_chapati_process.png",
+        "options": [
+            {"text": "1,2,3", "image": null, "id": "A"},
+            {"text": "2,3,1", "image": null, "id": "B"},
+            {"text": "2,1,3", "image": null, "id": "C"},
+            {"text": "1,3,2", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 10,
+        "type": "checkbox",
+        "question_text": "You are working on a group project to create a poster. What is the best way to collaborate with your teammates?",
+        "question_image": null,
+        "options": [
+            {"text": "Do everything yourself so the work gets done faster.", "image": null, "id": "A"},
+            {"text": "Let others do the work while you watch.", "image": null, "id": "B"},
+            {"text": "Share the work equally, listen to everyone’s ideas, and help each other.", "image": null, "id": "C"},
+            {"text": "Only work with your best friend and ignore the rest of the team.", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 11,
+        "type": "radio",
+        "question_text": "Scenario: The school playground becomes slippery when it rains. Many students fall while running or playing. Your group wants to solve this problem.",
+        "question_image": "images/q11_scenario.png",
+        "options": [],
+        "correct_answer_ids": []
+    },
+    {
+        "id": "11a",
+        "type": "checkbox",
+        "question_text": "Your group is trying to understand why this keeps happening. Which option correctly traces the root cause of the problem?",
+        "question_image": null,
+        "options": [
+            {"text": "It rains, so the floor gets wet and slippery.", "image": null, "id": "A"},
+            {"text": "It rains → the surface becomes slippery → students still run → they slip and fall.", "image": null, "id": "B"},
+            {"text": "It rains → no proper drainage → water stays on the floor → surface gets slippery → students fall.", "image": null, "id": "C"},
+            {"text": "Students are not careful while playing.", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": "11b",
+        "type": "radio",
+        "question_text": "Your group is now thinking of different ideas to solve the slippery playground problem. Which one would you like to try first? (Pick the best idea)",
+        "question_image": null,
+        "options": [
+            {"text": "Create a fun board game that teaches students to walk carefully on rainy days", "image": null, "id": "A"},
+            {"text": "Design a mat or surface that can help stop slipping during rains", "image": null, "id": "B"},
+            {"text": "Make colourful posters to remind students not to run when it rains", "image": null, "id": "C"},
+            {"text": "Build a small device that gives a warning when the floor is wet", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 12,
+        "type": "radio",
+        "question_text": "Your group chose the best idea to solve the slippery playground problem. Which set of tools and materials will help you build a model for it?",
+        "question_image": null,
+        "options": [
+            {"text": "Rubber sheet, grip tape, scissors", "image": null, "id": "A"},
+            {"text": "Cardboard, string, sketch pens", "image": null, "id": "B"},
+            {"text": "Chart paper, markers, tape", "image": null, "id": "C"},
+            {"text": "Wires, buzzer, water sensor", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 13,
+        "type": "radio",
+        "question_text": "Your group is ready to work on the solution. The steps below are jumbled. Which option shows the correct order to build your idea?\nJumbled Steps:\n1. Gather the materials and tools you will need\n2. Test the prototype to see if it works\n3. Build or make a simple version of your idea\n4. Understand when and where the problem happens\nChoose the correct order:",
+        "question_image": null,
+        "options": [
+            {"text": "1 → 3 → 2 → 4", "image": null, "id": "A"},
+            {"text": "4 → 1 → 3 → 2", "image": null, "id": "B"},
+            {"text": "2 → 1 → 3 → 4", "image": null, "id": "C"},
+            {"text": "4 → 3 → 1 → 2", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 14,
+        "type": "drawing",
+        "question_text": "Draw your prototype idea to solve the slippery playground problem.\n● Draw your prototype\n● Label important parts clearly",
+        "question_image": null,
+        "options": [],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 15,
+        "type": "radio",
+        "question_text": "Your group finishes building the prototype, but when you test it, some students still slip on the mat. What should your group do next?",
+        "question_image": null,
+        "options": [
+            {"text": "Stop using the mat and wait for someone else to solve the problem", "image": null, "id": "A"},
+            {"text": "Keep using it even if it doesn’t work properly", "image": null, "id": "B"},
+            {"text": "Throw the mat away and start a completely new idea immediately", "image": null, "id": "C"},
+            {"text": "Test it again, find out what part is slippery, improve the surface, and test again", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 16,
+        "type": "radio",
+        "question_text": "Which of the following uses AI (Artificial Intelligence) to learn and interact with you?\n1. Book\n2. Chair\n3. Phone\n4. TV\nSelect the correct pair",
+        "question_image": null,
+        "options": [
+            {"text": "1 and 2", "image": null, "id": "A"},
+            {"text": "2 and 3", "image": null, "id": "B"},
+            {"text": "3 and 4", "image": null, "id": "C"},
+            {"text": "2 and 4", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 17,
+        "type": "drawing",
+        "question_text": "AI can complete images by learning patterns. Can you guess what the full picture might be?",
+        "question_image": "images/q17_ai_complete_image.png",
+        "options": [],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 18,
+        "type": "radio",
+        "question_text": "ChatGPT is like a smart guesser — it reads lots of sentences and guesses what words should come next. Let’s see if you can guess like ChatGPT!\nSentence:\nOn our trip to the beach, we brought a __________ and a __________ to play with.",
+        "question_image": null,
+        "options": [
+            {"text": "umbrella, ball", "image": null, "id": "A"},
+            {"text": "book, pencil", "image": null, "id": "B"},
+            {"text": "computer, chair", "image": null, "id": "C"},
+            {"text": "apple, table", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 19,
+        "type": "radio",
+        "question_text": "If you have a classmate who is struggling with hearing problems, which of these actions can help her?\n1. Ask the teacher to show videos with captions.\n2. Ignore her and talk with friends.\n3. Help her with homework after class if she has missed instructions.\n4. Make fun of her in class.\nNow select the correct pair of statements.",
+        "question_image": null,
+        "options": [
+            {"text": "1 and 2", "image": null, "id": "A"},
+            {"text": "1 and 3", "image": null, "id": "B"},
+            {"text": "2 and 4", "image": null, "id": "C"},
+            {"text": "2 and 3", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 20,
+        "type": "radio",
+        "question_text": "Which of the following are examples of bias (unfair treatment) in everyday life?\n1. A teacher gives equal opportunities for all students to answer questions.\n2. A librarian only recommends books from one author because they like them.\n3. A store places all products in their correct sections for easy access.\n4. A teacher giving higher grades to students they like, even if others did well.\nNow select the correct pair of statements:",
+        "question_image": null,
+        "options": [
+            {"text": "1 and 2", "image": null, "id": "A"},
+            {"text": "1 and 3", "image": null, "id": "B"},
+            {"text": "2 and 4", "image": null, "id": "C"},
+            {"text": "1 and 4", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 21,
+        "type": "radio",
+        "question_text": "Your teacher shows videos on a phone, your parents make video calls, or you study using your phone. What helps all these work?",
+        "question_image": null,
+        "options": [
+            {"text": "Electricity used by devices", "image": null, "id": "A"},
+            {"text": "A toy used for playing with friends", "image": null, "id": "B"},
+            {"text": "A setting found on a mobile phone", "image": null, "id": "C"},
+            {"text": "A network that connects many devices", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 22,
+        "type": "radio",
+        "question_text": "You want to ask your teacher about a school trip. Which is the best subject line for your email?",
+        "question_image": null,
+        "options": [
+            {"text": "Question about the school trip", "image": null, "id": "A"},
+            {"text": "Hello, school trip!", "image": null, "id": "B"},
+            {"text": "Please tell me now", "image": null, "id": "C"},
+            {"text": "Just wondering, school trip", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 23,
+        "type": "radio",
+        "question_text": "Which of the following is safe to share online?",
+        "question_image": null,
+        "options": [
+            {"text": "Your home address", "image": null, "id": "A"},
+            {"text": "Your parents' credit card details", "image": null, "id": "B"},
+            {"text": "A drawing you made", "image": null, "id": "C"},
+            {"text": "Your exact location right now", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 24,
+        "type": "radio",
+        "question_text": "What should you do if your friend asks for your email password?",
+        "question_image": null,
+        "options": [
+            {"text": "Politically say no", "image": null, "id": "A"},
+            {"text": "Share it because they’re your friend", "image": null, "id": "B"},
+            {"text": "Give them a fake password", "image": null, "id": "C"},
+            {"text": "Ask them why they want it", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    },
+    {
+        "id": 25,
+        "type": "radio",
+        "question_text": "How long do you think one can be on the phone (searching the web, going through Facebook, etc.) at a time?",
+        "question_image": "images/q25_phone_usage.png",
+        "options": [
+            {"text": "1-2 hours with breaks", "image": null, "id": "A"},
+            {"text": "5-6 hours nonstop", "image": null, "id": "B"},
+            {"text": "All day without any breaks", "image": null, "id": "C"},
+            {"text": "As long as you want", "image": null, "id": "D"}
+        ],
+        "correct_answer_ids": []
+    }
+]
